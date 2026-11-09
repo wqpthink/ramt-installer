@@ -4,9 +4,11 @@
 
 [简体中文](README.md) · **English**
 
-**One connection, one window: terminal and files, side by side.**
+**One connection. One window. Terminal and files side by side.**
 
-A minimal SSH terminal + SFTP file manager for everyday operations and development · Windows
+SSH client & SFTP file manager for Windows (x64 / ARM64)
+
+Terminal · SFTP · Jump Hosts · SOCKS5 / HTTP Tunnels · Server Monitor · Local API for Scripts & AI Agents
 
 [![Release](https://img.shields.io/github/v/release/wqpthink/ramt-installer)](https://github.com/wqpthink/ramt-installer/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/wqpthink/ramt-installer/total)](https://github.com/wqpthink/ramt-installer/releases)
@@ -17,21 +19,20 @@ A minimal SSH terminal + SFTP file manager for everyday operations and developme
 
 </div>
 
+RAMT puts an interactive SSH terminal and an SFTP file manager in the same tab, sharing one connection. Built for developers, DevOps engineers and system administrators: SSH jump hosts (ProxyJump), SOCKS5 and HTTP proxy on a single port, drag-and-drop transfers, server resource monitoring, and a local REST / WebSocket API that lets scripts and AI agents use the hosts you have already configured.
+
 ---
 
 ## Why RAMT
 
-Still switching between two programs and two sets of settings, like **PuTTY + WinSCP** or **Xshell + Xftp**?
-
-RAMT does one thing: **connect to a server, type commands and manage files at the same time.**
-
-- 🪟 **Terminal and files in one view**: Terminal on the left, files on the right, in the same tab, with a draggable split. No second program needed.
-- 🔗 **Configure a host once**: the terminal, file browser, uploads and downloads share one SSH connection, so you enter the password once. When the server runs out of sessions, RAMT opens another connection without asking for the password again.
-- 🖱️ **Drag in to upload, drag out to download**: drag files from File Explorer to upload; select remote files and drag them to the desktop to download (native drag and drop, not a "Save as" dialog).
+- 🪟 **Terminal and files in one view**: Terminal on the left, files on the right, in the same tab, with a draggable split. No more two programs and two sets of connections like **PuTTY + WinSCP** or **Xshell + Xftp**.
 - 🪜 **Jump hosts, set up once**: give a target host its jump host chain (up to 5 hops) and just click the target to connect; terminal, files, transfers and proxy tunnels all go through the jump hosts automatically.
 - 🌐 **One port, two proxies**: when you reach an internal network through SSH, the same local port serves both **SOCKS5** and **HTTP** proxy - browsers, `curl`, `HTTPS_PROXY` and old tools that only speak HTTP proxy all work directly.
-- 🔒 **Secure by default**: passwords and private keys are encrypted only by the system's secure storage (Windows DPAPI) and never written to disk in plain text; a changed server fingerprint shows a red warning and the connection is refused by default.
 - 🤖 **Usable by scripts and AI agents**: a built-in HTTP API (REST + WebSocket, listening on this computer only by default, optionally on the LAN) lets other programs use the hosts, jump hosts and credentials configured in RAMT to run commands, drive terminals, read and write files, and upload or download. Fingerprint confirmation and passwords are handled through the API, so nobody has to watch the window.
+- 📊 **Server status at a glance**: the bottom right corner shows live CPU / GPU, memory and disk usage of the current server (Linux servers) and follows tab switches.
+- 🔗 **Configure a host once**: the terminal, file browser, uploads and downloads share one SSH connection, so you enter the password once. When the server runs out of sessions, RAMT opens another connection without asking for the password again.
+- 🖱️ **Drag in to upload, drag out to download**: drag files from File Explorer to upload; select remote files and drag them to the desktop to download (native drag and drop, not a "Save as" dialog).
+- 🔒 **Secure by default**: passwords and private keys are encrypted only by the system's secure storage (Windows DPAPI) and never written to disk in plain text; a changed server fingerprint shows a red warning and the connection is refused by default.
 - ♻️ **Close and reopen, everything is still there**: tab order, split ratio and the current folders are restored and reconnected automatically.
 - 🧘 **Nothing extra**: no account, no cloud, no ads, no sidebar - your data stays on your computer.
 
