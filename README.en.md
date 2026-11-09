@@ -181,7 +181,7 @@ On macOS use `⌘` instead of `Ctrl`.
 **Not a fit yet** (these features are missing; if you need them, try [Tabby](https://github.com/Eugeny/tabby), [electerm](https://github.com/electerm/electerm) or [WindTerm](https://github.com/kingToolbox/WindTerm)):
 - Local and remote port forwarding (`-L` / `-R`), X11 forwarding, agent forwarding
 - Other protocols such as Telnet, serial, RDP, VNC, or use as a local terminal
-- Syncing settings across devices, `rz` / `sz`, broadcast input to several terminals, AI assistant
+- Syncing settings across devices, `rz` / `sz`, broadcast input to several terminals
 
 ---
 

@@ -189,7 +189,7 @@ macOS 下将 `Ctrl` 换成 `⌘`。
 **暂时不适合**（这些功能目前没有，如果是刚需，推荐 [Tabby](https://github.com/Eugeny/tabby)、[electerm](https://github.com/electerm/electerm)、[WindTerm](https://github.com/kingToolbox/WindTerm)）：
 - 本地与远程端口转发（`-L` / `-R`）、X11 转发、Agent 转发
 - Telnet、串口、RDP、VNC 等其他协议，或用作本地终端
-- 多设备配置同步、`rz` / `sz`、多终端同步输入、AI 助手
+- 多设备配置同步、`rz` / `sz`、多终端同步输入
 
 ---
 
