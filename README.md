@@ -6,13 +6,13 @@
 
 **一个连接，一个窗口：终端和文件，左右并排。**
 
-Windows 上的 SSH 终端 + SFTP 文件管理工具（x64 / ARM64）
+跨平台 SSH 终端 + SFTP 文件管理工具 · Windows / macOS / Linux
 
 终端 · SFTP · 跳板机 · SOCKS5 / HTTP 隧道 · 服务器资源监控 · 供脚本和 AI Agent 调用的本地 API
 
 [![Release](https://img.shields.io/github/v/release/wqpthink/ramt-installer?label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC)](https://github.com/wqpthink/ramt-installer/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/wqpthink/ramt-installer/total?label=%E4%B8%8B%E8%BD%BD)](https://github.com/wqpthink/ramt-installer/releases)
-![Platform](https://img.shields.io/badge/platform-Windows-blue)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)
 ![Arch](https://img.shields.io/badge/arch-x64%20%7C%20arm64-blue)
 
 [下载](#-下载) · [快速上手](#-三步上手) · [功能](#-功能一览) · [常见问题](#-常见问题) · [更新日志](https://github.com/wqpthink/ramt-installer/releases) · [许可协议](#-许可协议)
@@ -39,8 +39,8 @@ Windows 上的 SSH 终端 + SFTP 文件管理工具（x64 / ARM64）
 - 🤖 **脚本和 AI Agent 也能用**：内置 HTTP API（REST + WebSocket，默认只监听本机，也可开放给局域网），外部程序可以直接使用 RAMT 已配置好的主机、跳板机和凭据来执行命令、操作终端、读写文件和上传下载，指纹确认和密码都通过 API 完成，不需要有人守在界面前。
 - 📊 **服务器状态一眼可见**：窗口右下角实时显示当前服务器的 CPU / GPU、内存、磁盘使用率（Linux 服务器），切换 Tab 自动跟随。
 - 🔗 **一台主机只配一次**：终端、文件浏览、上传下载共用同一条 SSH 连接，密码只输一次。服务器会话数不够时自动补一条连接，也不会再问你密码。
-- 🖱️ **拖进来上传，拖出去下载**：从资源管理器拖文件进来即上传；选中远程文件直接拖到桌面即下载（系统原生拖拽，不是"另存为"对话框）。
-- 🔒 **安全不靠自觉**：密码和私钥只交给系统安全存储（Windows DPAPI）加密，绝不明文落盘；服务器指纹变化时红色警告并默认拒绝连接。
+- 🖱️ **拖进来上传，拖出去下载**：从资源管理器 / 访达拖文件进来即上传；选中远程文件直接拖到桌面即下载（系统原生拖拽，不是"另存为"对话框）。
+- 🔒 **安全不靠自觉**：密码和私钥只交给系统安全存储（Windows DPAPI / macOS 钥匙串 / Linux Secret Service）加密，绝不明文落盘；服务器指纹变化时红色警告并默认拒绝连接。
 - ♻️ **关了再开，一切还在**：Tab 顺序、分屏比例、文件所在目录全部恢复，并自动重新连接。
 - 🧘 **没有多余的东西**：没有账号、没有云、没有广告、没有侧边栏，数据只在你的电脑里。
 
@@ -48,14 +48,19 @@ Windows 上的 SSH 终端 + SFTP 文件管理工具（x64 / ARM64）
 
 ## 📦 下载
 
-前往 **[Releases 页面](https://github.com/wqpthink/ramt-installer/releases/latest)** 下载最新版本。提供 Windows 10 / 11 的「安装版」和「绿色版」，按电脑的处理器选择 x64 或 ARM64：
+前往 **[Releases 页面](https://github.com/wqpthink/ramt-installer/releases/latest)** 下载最新版本。每个平台都提供「安装版」和「绿色版」，并区分 x64 与 ARM64：
 
-| 处理器 | 安装版（推荐，支持一键自动更新） | 绿色版（免安装） |
+| 系统 | 安装版（推荐，支持一键自动更新） | 绿色版（免安装） |
 |---|---|---|
-| **x64**（Intel / AMD，绝大多数电脑） | `RAMT-x.y.z-win-x64-setup.exe` | `RAMT-x.y.z-win-x64-portable.exe`（单个文件，数据保存在同目录 `ramt-data/`，可放 U 盘随身带） |
-| **ARM64**（Windows on ARM，如骁龙笔记本） | `RAMT-x.y.z-win-arm64-setup.exe` | `RAMT-x.y.z-win-arm64-portable.exe` |
+| **Windows 10 / 11**（x64） | `RAMT-x.y.z-win-x64-setup.exe` | `RAMT-x.y.z-win-x64-portable.exe`（单个文件，数据保存在同目录 `ramt-data/`，可放 U 盘随身带） |
+| **Windows on ARM**（如骁龙笔记本） | `RAMT-x.y.z-win-arm64-setup.exe` | `RAMT-x.y.z-win-arm64-portable.exe` |
+| **macOS**（Intel / Apple 芯片） | `.dmg` | `.zip` |
+| **Linux**（x64 / ARM64） | `.deb` | `.AppImage`（支持自动更新，数据保存在同目录 `ramt-data/`） |
 
-> **首次运行提示**（当前安装包尚未进行代码签名）：若出现「Windows 已保护你的电脑」，点击 **更多信息 → 仍要运行**。公司电脑的杀毒软件可能会拦截，请联系 IT 放行。
+> **首次运行提示**（当前安装包尚未进行代码签名）
+> - **Windows**：若出现「Windows 已保护你的电脑」，点击 **更多信息 → 仍要运行**。公司电脑的杀毒软件可能会拦截，请联系 IT 放行。
+> - **macOS**：若提示"无法验证开发者"，前往 **系统设置 → 隐私与安全性**，点击 **仍要打开**。
+> - **Linux AppImage**：先执行 `chmod +x RAMT-*.AppImage`。
 
 ---
 
@@ -139,6 +144,8 @@ curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:18765/api/v1/hosts
 
 ## ⌨️ 常用快捷键
 
+macOS 下将 `Ctrl` 换成 `⌘`。
+
 | 操作 | 快捷键 |
 |---|---|
 | 打开连接面板（新窗口） | `Ctrl+T` |
@@ -151,7 +158,7 @@ curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:18765/api/v1/hosts
 | 终端字号 放大 / 缩小 / 还原 | `Ctrl +` / `Ctrl -` / `Ctrl 0` |
 | 文件：重命名 / 删除 / 刷新 / 上级目录 | `F2` / `Delete` / `F5` / `Backspace` |
 
-> 当光标在终端里时，`Ctrl+T`、`Ctrl+W` 会交给远程 Shell（例如 Bash 的删除单词），不会误关 Tab。
+> Windows / Linux 下当光标在终端里时，`Ctrl+T`、`Ctrl+W` 会交给远程 Shell（例如 Bash 的删除单词），不会误关 Tab。
 
 ---
 
@@ -160,7 +167,7 @@ curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:18765/api/v1/hosts
 | 项目 | 说明 |
 |---|---|
 | 数据位置 | 安装版：系统用户数据目录（如 `%APPDATA%\RAMT`）；绿色版：程序旁的 `ramt-data/` |
-| 密码 / 私钥 | 由操作系统安全存储加密，只能在本机、当前用户下解密 |
+| 密码 / 私钥 | 由操作系统安全存储加密，只能在本机、当前用户下解密。Linux 没有可用的密钥环时一律不保存：密码改为每次连接时询问，私钥无法保存 |
 | 主机指纹 | 首次连接需确认；变化时红色警告并默认拒绝；导入文件中的指纹一律忽略 |
 | 网络 | 除检查更新访问 GitHub 外，不连接任何第三方服务，没有统计与遥测 |
 | 本地 API | 默认只监听本机 `127.0.0.1`，每个请求都需要访问令牌（加密保存，可随时重新生成，旧令牌立即失效）；拒绝来自网页的请求。开放到局域网（`0.0.0.0`）时通信未加密，只应在可信网络中使用；不需要时可在设置中关闭 |

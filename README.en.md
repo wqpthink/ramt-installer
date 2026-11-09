@@ -6,13 +6,13 @@
 
 **One connection. One window. Terminal and files side by side.**
 
-SSH client & SFTP file manager for Windows (x64 / ARM64)
+Cross-platform SSH client & SFTP file manager · Windows / macOS / Linux
 
 Terminal · SFTP · Jump Hosts · SOCKS5 / HTTP Tunnels · Server Monitor · Local API for Scripts & AI Agents
 
 [![Release](https://img.shields.io/github/v/release/wqpthink/ramt-installer)](https://github.com/wqpthink/ramt-installer/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/wqpthink/ramt-installer/total)](https://github.com/wqpthink/ramt-installer/releases)
-![Platform](https://img.shields.io/badge/platform-Windows-blue)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)
 ![Arch](https://img.shields.io/badge/arch-x64%20%7C%20arm64-blue)
 
 [Download](#-download) · [Get started](#-get-started-in-three-steps) · [Features](#-features) · [FAQ](#-faq) · [Changelog](https://github.com/wqpthink/ramt-installer/releases) · [License](#-license-agreement)
@@ -31,8 +31,8 @@ RAMT puts an interactive SSH terminal and an SFTP file manager in the same tab, 
 - 🤖 **Usable by scripts and AI agents**: a built-in HTTP API (REST + WebSocket, listening on this computer only by default, optionally on the LAN) lets other programs use the hosts, jump hosts and credentials configured in RAMT to run commands, drive terminals, read and write files, and upload or download. Fingerprint confirmation and passwords are handled through the API, so nobody has to watch the window.
 - 📊 **Server status at a glance**: the bottom right corner shows live CPU / GPU, memory and disk usage of the current server (Linux servers) and follows tab switches.
 - 🔗 **Configure a host once**: the terminal, file browser, uploads and downloads share one SSH connection, so you enter the password once. When the server runs out of sessions, RAMT opens another connection without asking for the password again.
-- 🖱️ **Drag in to upload, drag out to download**: drag files from File Explorer to upload; select remote files and drag them to the desktop to download (native drag and drop, not a "Save as" dialog).
-- 🔒 **Secure by default**: passwords and private keys are encrypted only by the system's secure storage (Windows DPAPI) and never written to disk in plain text; a changed server fingerprint shows a red warning and the connection is refused by default.
+- 🖱️ **Drag in to upload, drag out to download**: drag files from File Explorer / Finder to upload; select remote files and drag them to the desktop to download (native drag and drop, not a "Save as" dialog).
+- 🔒 **Secure by default**: passwords and private keys are encrypted only by the system's secure storage (Windows DPAPI / macOS Keychain / Linux Secret Service) and never written to disk in plain text; a changed server fingerprint shows a red warning and the connection is refused by default.
 - ♻️ **Close and reopen, everything is still there**: tab order, split ratio and the current folders are restored and reconnected automatically.
 - 🧘 **Nothing extra**: no account, no cloud, no ads, no sidebar - your data stays on your computer.
 
@@ -40,14 +40,19 @@ RAMT puts an interactive SSH terminal and an SFTP file manager in the same tab, 
 
 ## 📦 Download
 
-Get the latest version from the **[Releases page](https://github.com/wqpthink/ramt-installer/releases/latest)**. There are an installer and a portable version for Windows 10 / 11; choose x64 or ARM64 according to the processor of your computer:
+Get the latest version from the **[Releases page](https://github.com/wqpthink/ramt-installer/releases/latest)**. Every platform has an installer and a portable version, for x64 and ARM64:
 
-| Processor | Installer (recommended, one-click updates) | Portable (no installation) |
+| System | Installer (recommended, one-click updates) | Portable (no installation) |
 |---|---|---|
-| **x64** (Intel / AMD, most computers) | `RAMT-x.y.z-win-x64-setup.exe` | `RAMT-x.y.z-win-x64-portable.exe` (a single file; data is kept in `ramt-data/` next to it, so it can live on a USB drive) |
-| **ARM64** (Windows on ARM, e.g. Snapdragon laptops) | `RAMT-x.y.z-win-arm64-setup.exe` | `RAMT-x.y.z-win-arm64-portable.exe` |
+| **Windows 10 / 11** (x64) | `RAMT-x.y.z-win-x64-setup.exe` | `RAMT-x.y.z-win-x64-portable.exe` (a single file; data is kept in `ramt-data/` next to it, so it can live on a USB drive) |
+| **Windows on ARM** (e.g. Snapdragon laptops) | `RAMT-x.y.z-win-arm64-setup.exe` | `RAMT-x.y.z-win-arm64-portable.exe` |
+| **macOS** (Intel / Apple silicon) | `.dmg` | `.zip` |
+| **Linux** (x64 / ARM64) | `.deb` | `.AppImage` (one-click updates; data is kept in `ramt-data/` next to it) |
 
-> **First start** (the packages are not code-signed yet): if "Windows protected your PC" appears, click **More info → Run anyway**. Antivirus software on company computers may block it; ask your IT department to allow it.
+> **First start** (the packages are not code-signed yet)
+> - **Windows**: if "Windows protected your PC" appears, click **More info → Run anyway**. Antivirus software on company computers may block it; ask your IT department to allow it.
+> - **macOS**: if macOS says the developer cannot be verified, open **System Settings → Privacy & Security** and click **Open Anyway**.
+> - **Linux AppImage**: run `chmod +x RAMT-*.AppImage` first.
 
 ---
 
@@ -131,6 +136,8 @@ All endpoints and error codes are described by the OpenAPI 3.1 document, readabl
 
 ## ⌨️ Keyboard shortcuts
 
+On macOS use `⌘` instead of `Ctrl`.
+
 | Action | Shortcut |
 |---|---|
 | Open the connections panel (new window) | `Ctrl+T` |
@@ -143,7 +150,7 @@ All endpoints and error codes are described by the OpenAPI 3.1 document, readabl
 | Terminal font larger / smaller / reset | `Ctrl +` / `Ctrl -` / `Ctrl 0` |
 | Files: rename / delete / refresh / parent folder | `F2` / `Delete` / `F5` / `Backspace` |
 
-> While the cursor is in the terminal, `Ctrl+T` and `Ctrl+W` go to the remote shell (for example Bash's delete-word), so they never close a tab by accident.
+> On Windows / Linux, while the cursor is in the terminal, `Ctrl+T` and `Ctrl+W` go to the remote shell (for example Bash's delete-word), so they never close a tab by accident.
 
 ---
 
@@ -152,7 +159,7 @@ All endpoints and error codes are described by the OpenAPI 3.1 document, readabl
 | Item | Details |
 |---|---|
 | Data location | Installer: the system user data folder (e.g. `%APPDATA%\RAMT`); portable: `ramt-data/` next to the program |
-| Passwords / private keys | Encrypted by the operating system's secure storage; can only be decrypted on this computer by the current user |
+| Passwords / private keys | Encrypted by the operating system's secure storage; can only be decrypted on this computer by the current user. On Linux without a usable keyring nothing is saved: passwords are asked for at every connection and private keys cannot be saved |
 | Host fingerprints | Must be confirmed on first connect; a change shows a red warning and is refused by default; fingerprints in imported files are always ignored |
 | Network | Apart from update checks against GitHub, no third-party services are contacted; no analytics or telemetry |
 | Local API | Listens on `127.0.0.1` only by default; every request needs the access token (stored encrypted, can be regenerated at any time, the old token stops working immediately); requests from web pages are refused. When opened to the LAN (`0.0.0.0`) traffic is unencrypted, so only use that on trusted networks; switch the API off in Settings when you don't need it |
