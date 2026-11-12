@@ -10,30 +10,33 @@ Cross-platform SSH client & SFTP file manager · Windows / macOS / Linux
 
 Terminal · SFTP · Remote Desktop (RDP) · Jump Hosts · SOCKS5 / HTTP Tunnels · Server Monitor · Local API for Scripts & AI Agents
 
+🔒 **Your data stays on your computer** · nothing uploaded, nothing collected · passwords and private keys encrypted by the operating system's credential protection
+
 [![Release](https://img.shields.io/github/v/release/wqpthink/ramt-installer)](https://github.com/wqpthink/ramt-installer/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/wqpthink/ramt-installer/total)](https://github.com/wqpthink/ramt-installer/releases)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)
 ![Arch](https://img.shields.io/badge/arch-x64%20%7C%20arm64-blue)
+[![Data](https://img.shields.io/badge/data-stays%20on%20your%20computer-brightgreen)](#-data-and-key-security)
 
 [Download](#-download) · [Get started](#-get-started-in-three-steps) · [Features](#-features) · [Data security](#-data-and-key-security) · [FAQ](#-faq) · [Changelog](https://github.com/wqpthink/ramt-installer/releases) · [License](#-license-agreement)
 
 </div>
 
-RAMT puts an interactive SSH terminal and an SFTP file manager in the same tab, sharing one connection. Built for developers, DevOps engineers and system administrators: SSH jump hosts (ProxyJump), embedded remote desktops opened through SSH, SOCKS5 and HTTP proxy on a single port, drag-and-drop transfers, server resource monitoring, and a local REST / WebSocket API that lets scripts and AI agents use the hosts you have already configured.
+RAMT puts an interactive SSH terminal and an SFTP file manager in the same tab, sharing one connection; when you need a graphical interface, the same SSH connection also opens the server's remote desktop (RDP), embedded in a tab, without exposing port 3389. Built for developers, DevOps engineers and system administrators: SSH jump hosts (ProxyJump), SOCKS5 and HTTP proxy on a single port, drag-and-drop transfers, server resource monitoring, and a local REST / WebSocket API that lets scripts and AI agents use the hosts you have already configured.
 
 ---
 
 ## Why RAMT
 
+- 🔒 **Your data stays on your computer**: strictly no access to any private data, no server, nothing uploaded. Passwords and private keys are encrypted and kept only by the operating system's credential protection (Windows DPAPI / macOS Keychain / Linux Secret Service), never written to disk in plain text and never saved as separate key files; a changed server fingerprint shows a red warning and the connection is refused by default. See [Data and key security](#-data-and-key-security).
 - 🪟 **Terminal and files in one view**: Terminal on the left, files on the right, in the same tab, with a draggable split. No more two programs and two sets of connections like **PuTTY + WinSCP** or **Xshell + Xftp**.
-- 🪜 **Jump hosts, set up once**: give a target host its jump host chain (up to 5 hops) and just click the target to connect; terminal, files, transfers and proxy tunnels all go through the jump hosts automatically.
-- 🖥️ **Remote desktop over SSH too**: choose "Open Remote Desktop" on a configured SSH host (jump hosts included) and its Linux desktop opens embedded in a tab, next to the File view if you like. RDP travels through the SSH tunnel, so the server does not expose port 3389 and you need no separate remote desktop client.
+- 🪜 **Jump hosts, set up once**: give a target host its jump host chain (up to 5 hops) and just click the target to connect; terminal, files, transfers, proxy tunnels and remote desktop all go through the jump hosts automatically.
+- 🖥️ **Remote desktop over SSH too**: choose "Open Remote Desktop" on a configured SSH host (jump hosts included) and the server's graphical desktop (GNOME Remote Desktop or xrdp on Linux, or Windows Remote Desktop) opens embedded in a tab, next to the File view if you like. RDP travels through the SSH tunnel, so the server does not expose port 3389 and you need no separate remote desktop client.
 - 🌐 **One port, two proxies**: when you reach an internal network through SSH, the same local port serves both **SOCKS5** and **HTTP** proxy - browsers, `curl`, `HTTPS_PROXY` and old tools that only speak HTTP proxy all work directly.
 - 🤖 **Usable by scripts and AI agents**: a built-in HTTP API (REST + WebSocket, listening on this computer only by default, optionally on the LAN) lets other programs use the hosts, jump hosts and credentials configured in RAMT to run commands, drive terminals, read and write files, and upload or download. Fingerprint confirmation and passwords are handled through the API, so nobody has to watch the window.
 - 📊 **Server status at a glance**: the bottom right corner shows live CPU / GPU, memory and disk usage of the current server (Linux servers) and follows tab switches.
-- 🔗 **Configure a host once**: the terminal, file browser, uploads and downloads share one SSH connection, so you enter the password once. When the server runs out of sessions, RAMT opens another connection without asking for the password again.
+- 🔗 **Configure a host once**: the terminal, file browser, uploads, downloads and remote desktop share one SSH connection, so you enter the password once. When the server runs out of sessions, RAMT opens another connection without asking for the password again.
 - 🖱️ **Drag in to upload, drag out to download**: drag files from File Explorer / Finder to upload; select remote files and drag them to the desktop to download (native drag and drop, not a "Save as" dialog).
-- 🔒 **Your data stays on your computer**: strictly no access to any private data, no server, nothing uploaded. Passwords and private keys are encrypted and kept only by the operating system's credential protection (Windows DPAPI / macOS Keychain / Linux Secret Service), never written to disk in plain text and never saved as separate key files; a changed server fingerprint shows a red warning and the connection is refused by default.
 - ♻️ **Close and reopen, everything is still there**: tab order, split ratio and the current folders are restored and reconnected automatically.
 - 🧘 **Nothing extra**: no account, no cloud, no ads, no sidebar - your data stays on your computer.
 
@@ -41,26 +44,31 @@ RAMT puts an interactive SSH terminal and an SFTP file manager in the same tab, 
 
 ## 📦 Download
 
-Get the latest version from the **[Releases page](https://github.com/wqpthink/ramt-installer/releases/latest)**. Every platform has an installer and a portable version, for x64 and ARM64:
+Get the latest version from the **[Releases page](https://github.com/wqpthink/ramt-installer/releases/latest)** (`x.y.z` is the version). Every platform has an installer and a portable version, for x64 and ARM64:
 
-| System | Installer (recommended, one-click updates) | Portable (no installation) |
+| System | Installer (recommended) | Portable (no installation) |
 |---|---|---|
 | **Windows 10 / 11** (x64) | `RAMT-x.y.z-win-x64-setup.exe` | `RAMT-x.y.z-win-x64-portable.exe` (a single file; data is kept in `ramt-data/` next to it, so it can live on a USB drive) |
 | **Windows on ARM** (e.g. Snapdragon laptops) | `RAMT-x.y.z-win-arm64-setup.exe` | `RAMT-x.y.z-win-arm64-portable.exe` |
-| **macOS** (Intel / Apple silicon) | `.dmg` | `.zip` |
-| **Linux** (x64 / ARM64) | `.deb` | `.AppImage` (one-click updates; data is kept in `ramt-data/` next to it) |
+| **macOS** (Apple silicon, M series) | `RAMT-x.y.z-mac-arm64.dmg` | `RAMT-x.y.z-mac-arm64.zip` |
+| **macOS** (Intel) | `RAMT-x.y.z-mac-x64.dmg` | `RAMT-x.y.z-mac-x64.zip` |
+| **Linux** (x64, Debian / Ubuntu etc.) | `RAMT-x.y.z-linux-amd64.deb` | `RAMT-x.y.z-linux-x86_64.AppImage` (data is kept in `ramt-data/` next to it) |
+| **Linux** (ARM64) | `RAMT-x.y.z-linux-arm64.deb` | `RAMT-x.y.z-linux-arm64.AppImage` |
+
+**Updates**: the Windows installer version and the Linux AppImage update with one click inside the app; macOS, deb and the Windows portable version open the download page - install the new version over the old one, your data is kept.
 
 > **First start** (the packages are not code-signed yet)
 > - **Windows**: if "Windows protected your PC" appears, click **More info → Run anyway**. Antivirus software on company computers may block it; ask your IT department to allow it.
-> - **macOS**: if macOS says the developer cannot be verified, open **System Settings → Privacy & Security** and click **Open Anyway**.
-> - **Linux AppImage**: run `chmod +x RAMT-*.AppImage` first.
+> - **macOS**: drag RAMT into "Applications" and open it; if macOS says the developer cannot be verified, open **System Settings → Privacy & Security** and click **Open Anyway**. If it says the app "is damaged and can't be opened", run `xattr -dr com.apple.quarantine /Applications/RAMT.app` in Terminal and open it again.
+> - **Linux deb**: `sudo apt install ./RAMT-x.y.z-linux-amd64.deb` (use the ARM64 file on ARM64).
+> - **Linux AppImage**: run `chmod +x RAMT-*.AppImage` first, then double-click it or start it from a terminal.
 
 ---
 
 ## 🚀 Get started in three steps
 
 1. **New connection**: click the connections button at the top (or press `Ctrl+T`), click "New connection" in the panel toolbar, enter host and user name and choose password or private key authentication.
-2. **Open**: double-click a connection to open its terminal; right-click for "Open Terminal" or "Open File".
+2. **Open**: double-click a connection to open its terminal; right-click for "Open Terminal", "Open File" or "Open Remote Desktop".
 3. **Split view**: in a tab, `Ctrl+Shift+F` shows the File view and `Ctrl+Shift+T` the Terminal view - with both open you get the side-by-side split.
 
 The first time you connect to a server, RAMT shows its host fingerprint; once you confirm it, it is remembered.
@@ -74,14 +82,15 @@ The first time you connect to a server, RAMT shows its host fingerprint; once yo
 - Password / private key authentication; private keys in **OpenSSH, PEM and PPK (PuTTY)** format, including keys with a passphrase; keyboard-interactive authentication is supported too.
 - Passwords can be left unsaved and asked for when connecting.
 - **Jump hosts (ProxyJump)**: choose "Through jump hosts" as the connection mode and pick jump hosts from your existing connections in order (up to 5, reorderable; jump hosts can be created or edited right there). Every hop uses its own credentials and host fingerprint; several targets can share a jump host; when a connection fails, RAMT tells you which host failed. Jump hosts still in use cannot be deleted.
+- "Open Terminal" and "Open File" open a new tab each time by default; to switch to an open tab instead, tick "Reuse open Terminal and File tabs" in **Settings → Connection → Connection behavior**.
 - Import / export connections to move to another computer in one step (including the group structure).
 
 ### Terminal
-- Multiple tabs; when there are too many, they move into a drop-down list on the right.
+- Multiple tabs, the current one easy to spot; when there are too many, they move into a drop-down list on the right.
 - Zoom the font of the current terminal only (`Ctrl +` / `Ctrl -` / `Ctrl+mouse wheel`), other tabs stay as they are.
 - Search in the terminal, clickable links, full Unicode and CJK wide-character support.
-- Right-click "Open current folder in files": the file view goes straight to the folder the shell is in (Linux servers; on other systems the shell has to report its folder with OSC 7).
-- Heavy output (such as `tail -f` or build logs) does not freeze the window: built-in back-pressure keeps continuous output arriving line by line in real time.
+- Right-click "Open current folder in files": the file view goes straight to the folder the shell is in (Linux servers; on other systems the shell has to report its folder with OSC 7), also on servers that limit the number of sessions per connection.
+- Heavy output (such as `tail -f` or build logs) does not freeze the window: built-in back-pressure keeps continuous output arriving line by line in real time; dragging the split or resizing the window does not make full-screen programs such as vim or top redraw again and again.
 - System text rendering by default, the same glyphs as your IDE; GPU acceleration can be switched on in Settings.
 - Font, font size, cursor style, scrollback lines and light / dark / system theme are configurable.
 
@@ -92,6 +101,18 @@ The first time you connect to a server, RAMT shows its host fingerprint; once yo
 - Upload files or whole folders; download to a chosen folder or drag straight to the desktop.
 - Transfer panel: progress, cancel, retry; large files are streamed in chunks without using much memory; downloads go to a temporary file that is renamed only when complete, so no half-written files are left behind.
 - On name conflicts choose overwrite / skip / keep both.
+
+### Remote desktop (RDP)
+Choose **Open Remote Desktop** in a connection's context menu or action list. The first time you enter the RDP user name and password (the default address is `127.0.0.1:3389`, the RDP service on the SSH host itself); afterwards it opens directly.
+
+- **Through SSH**: the RDP connection is forwarded through the host's existing SSH connection (jump hosts included) and shares it with terminals and files; closing a remote desktop tab only ends that desktop.
+- **Embedded**: each remote desktop has its own tab and can be split with the File view (uploads and downloads stay in the File view); desktops of different hosts can be open at once, while a host has a single remote desktop tab - opening it again returns to that tab instead of connecting twice.
+- **Input**: mouse (left / right / middle button, wheel, drag) and keyboard (shortcuts, F1-F12, arrows...). Once you click the desktop it owns the keyboard: every key goes to the remote side, `Ctrl+W`, `Ctrl+Tab` and friends do nothing in RAMT, and clicking toolbar buttons does not take the keyboard away. Input methods (Chinese and others) are the remote desktop's own by default; switch on "Local input method" in the toolbar to type with this computer's input method, the text is then sent as Unicode. The Windows key, `Alt+Tab` and `Ctrl+Alt+Del` are taken by the local system first: in full screen they go to the remote side (when the system allows it), in a window send them with "Send keys" in the toolbar.
+- **Full screen and resolution**: full screen (`Ctrl+Alt+Enter`), fit to window / actual size; "Fit to window" always fills the view (keeping the aspect ratio) and grows with it when the main window is maximized or full screen; the resolution is "Fit to window (auto)" or 1024×768 up to 1920×1080, changed live to the new window size when the server supports it (sharpest picture), otherwise the picture is scaled to the window and a hint offers to reconnect at the new size; high-DPI screens get the matching scale factor.
+- **Clipboard**: text clipboard shared between this computer and the remote desktop when the server supports it (no files).
+- **Security**: TLS (with Network Level Authentication), the server certificate is confirmed on first connect and a change is warned about; the RDP password is encrypted by the system's secure storage, or not saved at all if you prefer.
+- **Disconnects**: the tab shows the state and the reason of errors; when SSH drops or the server ends the session it is marked disconnected and reconnects with one click. Remote desktop tabs come back after a restart but only connect when you click "Connect".
+- **Server requirements**: an RDP service must already run on the remote side (GNOME Remote Desktop, xrdp or Windows Remote Desktop); RAMT never installs or changes anything on the server.
 
 ### SSH tunnels (dynamic port forwarding, like `ssh -D`)
 Add them in **Settings → Proxy Tunnels**: choose the connection to go through, the listen address and the port. The tunnel is active whenever that connection has an open session:
@@ -105,18 +126,6 @@ $env:HTTPS_PROXY = 'http://127.0.0.1:1080'      # Windows PowerShell
 ```
 
 Browsers, database clients, Proxifier, Clash and similar tools can point to this port as well.
-
-### Remote desktop (RDP)
-Choose **Open Remote Desktop** in a connection's context menu or action list. The first time you enter the RDP user name and password (the default address is `127.0.0.1:3389`, the RDP service on the SSH host itself); afterwards it opens directly.
-
-- **Through SSH**: the RDP connection is forwarded through the host's existing SSH connection (jump hosts included) and shares it with terminals and files; closing a remote desktop tab only ends that desktop.
-- **Embedded**: each remote desktop has its own tab and can be split with the File view (uploads and downloads stay in the File view); desktops of different hosts can be open at once, while a host has a single remote desktop tab - opening it again returns to that tab instead of connecting twice.
-- **Input**: mouse (left / right / middle button, wheel, drag) and keyboard (shortcuts, F1-F12, arrows...). Once you click the desktop it owns the keyboard: every key goes to the remote side, `Ctrl+W`, `Ctrl+Tab` and friends do nothing in RAMT, and clicking toolbar buttons does not take the keyboard away. Input methods (Chinese and others) are the remote desktop's own by default; switch on "Local input method" in the toolbar to type with this computer's input method, the text is then sent as Unicode. The Windows key, `Alt+Tab` and `Ctrl+Alt+Del` are taken by the local system first: in full screen they go to the remote side (when the system allows it), in a window send them with "Send keys" in the toolbar.
-- **Full screen and resolution**: full screen (`Ctrl+Alt+Enter`), fit to window / actual size; "Fit to window" always fills the view (keeping the aspect ratio) and grows with it when the main window is maximized or full screen; the resolution is "Fit to window (auto)" or 1024×768 up to 1920×1080, changed live to the new window size when the server supports it (sharpest picture), otherwise the picture is scaled to the window and a hint offers to reconnect at the new size; high-DPI screens get the matching scale factor.
-- **Clipboard**: text clipboard shared between this computer and the remote desktop when the server supports it (no files).
-- **Security**: TLS (with Network Level Authentication), the server certificate is confirmed on first connect and a change is warned about; the RDP password is encrypted by the system's secure storage, or not saved at all if you prefer.
-- **Disconnects**: the tab shows the state and the reason of errors; when SSH drops or the server ends the session it is marked disconnected and reconnects with one click. Remote desktop tabs come back after a restart but only connect when you click "Connect".
-- **Server requirements**: an RDP service must already run on the remote side (GNOME Remote Desktop, xrdp or Windows Remote Desktop); RAMT never installs or changes anything on the server.
 
 ### Server resource monitor
 Switch on "Server resource monitor" in **Settings → Extensions** to see the **CPU / GPU, memory and disk** usage of the current tab's server live in the bottom right corner of the window (refreshed every 2 seconds, highlighted when usage is high). The panel is semi-transparent and does not get in the way, follows tab switches, and stops collecting as soon as you switch it off. Works with Linux servers (GPU requires `nvidia-smi` from the NVIDIA driver); it only reads system information and leaves no files on the server.
@@ -144,7 +153,7 @@ All endpoints and error codes are described by the OpenAPI 3.1 document, readabl
 ### Other
 - Chinese / English interface.
 - Themes: Dark, Light, **Soft Aurora** (a light scheme with a warm misty white background and mint green accents; the terminal switches to the matching deep graphite Lumi Flow colors), or follow the system.
-- Checks GitHub for new versions at startup; the installer version updates with one click ("Restart and install").
+- Checks GitHub for new versions at startup and shows what changed; the Windows installer version and the Linux AppImage update with one click ("Restart and install"), the other versions open the download page.
 
 ---
 
@@ -214,6 +223,7 @@ On macOS use `⌘` instead of `Ctrl`.
 - Log in to servers with passwords or one-time codes and don't want to type them again and again.
 - Need an SSH host to reach internal web pages, databases or APIs.
 - Can only reach servers through one or more jump hosts.
+- Occasionally need a server's graphical desktop without opening a remote desktop port to the outside.
 - Want scripts or AI agents to use SSH, SFTP, terminals and file transfers through a local API.
 - Want a clean tool that just works when you open it.
 
@@ -232,11 +242,17 @@ Passwords are bound by the system's secure storage to the original computer and 
 **Do the portable and installer versions share data?**
 Not automatically - they use different data folders. Use export / import to move data between them.
 
+**Why did "Open Terminal" open another tab?**
+By default every open creates a new tab, so you can work in several terminals at once. To return to the open tab instead, tick "Reuse open Terminal and File tabs" in **Settings → Connection → Connection behavior**. Remote desktops are not affected: a host always has a single remote desktop tab.
+
 **A transfer was still running when I closed RAMT?**
 Unfinished transfers show as "Interrupted" at the next start. They do not resume automatically; start them again manually.
 
 **The remote desktop does not connect?**
 First check that the RDP service runs on the server (GNOME Remote Desktop, for example, must be enabled on the server with `grdctl` including a user name and password) and that the address and port can be reached from the SSH host; the SSH server must allow TCP forwarding (`AllowTcpForwarding yes`). The error message tells whether SSH, the RDP port, the certificate or the user name / password is the problem.
+
+**The remote desktop looks blurry?**
+With "Fit to window", if the server cannot change its resolution to the window size, the picture is scaled and text looks slightly soft. Reconnect when RAMT offers it (the resolution is then requested for the current window size), or switch to "Actual size" in the toolbar for a one-to-one picture.
 
 **A tunnel port fails to start?**
 Usually the port is already in use: choose another port and click "Retry". The server must also allow TCP forwarding (OpenSSH allows it by default, `AllowTcpForwarding yes`).
@@ -255,6 +271,9 @@ The author changed the signing key or revoked that license, so the old code is n
 
 **Dragging to the desktop says "Files are ready - drag them out again"?**
 Larger files are first downloaded to a local temporary folder; drag them out once more when that is done. For files over 64 MB, right-click "Download to…" is recommended.
+
+**RAMT froze or crashed - how do I report it?**
+Unresponsive windows, crashed processes and similar events are written to `ramt.log` in the data folder (see "Everything stays on this computer" above). Attach this file when you report the problem: the log contains no passwords or private keys, but it can contain host names, user names and file paths, so you may want to look at it before sending it.
 
 ---
 
