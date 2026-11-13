@@ -48,17 +48,18 @@ Get the latest version from the **[Releases page](https://github.com/wqpthink/ra
 
 | System | Installer (recommended) | Portable (no installation) |
 |---|---|---|
-| **Windows 10 / 11** (x64) | `RAMT-x.y.z-win-x64-setup.exe` | `RAMT-x.y.z-win-x64-portable.exe` (a single file; data is kept in `ramt-data/` next to it, so it can live on a USB drive) |
-| **Windows on ARM** (e.g. Snapdragon laptops) | `RAMT-x.y.z-win-arm64-setup.exe` | `RAMT-x.y.z-win-arm64-portable.exe` |
+| **Windows 10 / 11** (x64) | `RAMT-x.y.z-win-x64-setup.exe` | `RAMT-x.y.z-win-x64-portable.zip` (unpack it and run `RAMT.exe` inside; data is kept in `ramt-data/` in the same folder, so the whole folder can live on a USB drive) |
+| **Windows on ARM** (e.g. Snapdragon laptops) | `RAMT-x.y.z-win-arm64-setup.exe` | `RAMT-x.y.z-win-arm64-portable.zip` |
 | **macOS** (Apple silicon, M series) | `RAMT-x.y.z-mac-arm64.dmg` | `RAMT-x.y.z-mac-arm64.zip` |
 | **macOS** (Intel) | `RAMT-x.y.z-mac-x64.dmg` | `RAMT-x.y.z-mac-x64.zip` |
 | **Linux** (x64, Debian / Ubuntu etc.) | `RAMT-x.y.z-linux-amd64.deb` | `RAMT-x.y.z-linux-x86_64.AppImage` (data is kept in `ramt-data/` next to it) |
 | **Linux** (ARM64) | `RAMT-x.y.z-linux-arm64.deb` | `RAMT-x.y.z-linux-arm64.AppImage` |
 
-**Updates**: the Windows installer version and the Linux AppImage update with one click inside the app; macOS, deb and the Windows portable version open the download page - install the new version over the old one, your data is kept.
+**Updates**: the Windows installer version and the Linux AppImage update with one click inside the app; macOS, deb and the Windows portable version open the download page - install the new version over the old one, your data is kept (for the Windows portable version, unpack the new zip over the old folder; `ramt-data/` stays).
 
 > **First start** (the packages are not code-signed yet)
 > - **Windows**: if "Windows protected your PC" appears, click **More info → Run anyway**. Antivirus software on company computers may block it; ask your IT department to allow it.
+> - **Windows portable**: first unpack the whole zip into a folder (e.g. `D:\Tools\RAMT`), then run `RAMT.exe` inside it; don't start it from within the zip.
 > - **macOS**: drag RAMT into "Applications" and open it; if macOS says the developer cannot be verified, open **System Settings → Privacy & Security** and click **Open Anyway**. If it says the app "is damaged and can't be opened", run `xattr -dr com.apple.quarantine /Applications/RAMT.app` in Terminal and open it again.
 > - **Linux deb**: `sudo apt install ./RAMT-x.y.z-linux-amd64.deb` (use the ARM64 file on ARM64).
 > - **Linux AppImage**: run `chmod +x RAMT-*.AppImage` first, then double-click it or start it from a terminal.
@@ -109,6 +110,7 @@ Choose **Open Remote Desktop** in a connection's context menu or action list. Th
 - **Embedded**: each remote desktop has its own tab and can be split with the File view (uploads and downloads stay in the File view); desktops of different hosts can be open at once, while a host has a single remote desktop tab - opening it again returns to that tab instead of connecting twice.
 - **Input**: mouse (left / right / middle button, wheel, drag) and keyboard (shortcuts, F1-F12, arrows...). Once you click the desktop it owns the keyboard: every key goes to the remote side, `Ctrl+W`, `Ctrl+Tab` and friends do nothing in RAMT, and clicking toolbar buttons does not take the keyboard away. Input methods (Chinese and others) are the remote desktop's own by default; switch on "Local input method" in the toolbar to type with this computer's input method, the text is then sent as Unicode. The Windows key, `Alt+Tab` and `Ctrl+Alt+Del` are taken by the local system first: in full screen they go to the remote side (when the system allows it), in a window send them with "Send keys" in the toolbar.
 - **Full screen and resolution**: full screen (`Ctrl+Alt+Enter`), fit to window / actual size; "Fit to window" always fills the view (keeping the aspect ratio) and grows with it when the main window is maximized or full screen; the resolution is "Fit to window (auto)" or 1024×768 up to 1920×1080, changed live to the new window size when the server supports it (sharpest picture), otherwise the picture is scaled to the window and a hint offers to reconnect at the new size; high-DPI screens get the matching scale factor.
+- **A toolbar that takes no room**: the toolbar floats over the top of the remote desktop; after connecting it shows for a few seconds and then slides away, so the desktop fills the whole tab. Move the pointer to the top edge of the desktop, or simply past it, to bring it back right away; it slides away again when you move off. While not connected the toolbar stays visible.
 - **Clipboard**: text clipboard shared between this computer and the remote desktop when the server supports it (no files).
 - **Security**: TLS (with Network Level Authentication), the server certificate is confirmed on first connect and a change is warned about; the RDP password is encrypted by the system's secure storage, or not saved at all if you prefer.
 - **Disconnects**: the tab shows the state and the reason of errors; when SSH drops or the server ends the session it is marked disconnected and reconnects with one click. Remote desktop tabs come back after a restart but only connect when you click "Connect".
@@ -153,7 +155,7 @@ All endpoints and error codes are described by the OpenAPI 3.1 document, readabl
 ### Other
 - Chinese / English interface.
 - Themes: Dark, Light, **Soft Aurora** (a light scheme with a warm misty white background and mint green accents; the terminal switches to the matching deep graphite Lumi Flow colors), or follow the system.
-- Checks GitHub for new versions at startup and shows what changed; the Windows installer version and the Linux AppImage update with one click ("Restart and install"), the other versions open the download page.
+- Checks GitHub for new versions at startup: a new version opens a window with what changed, where you can update right away, choose "Later" or "Skip this version" (newer versions are offered again); the Windows installer version and the Linux AppImage update with one click ("Restart and install"), the other versions open the download page.
 
 ---
 
@@ -238,6 +240,9 @@ On macOS use `⌘` instead of `Ctrl`.
 
 **Saved passwords don't work on a new computer?**
 Passwords are bound by the system's secure storage to the original computer and user, so copying the data folder cannot decrypt them. Export the connections on the old computer and import them on the new one.
+
+**I used the single-exe portable version before - is my data still there with the zip?**
+Up to 0.1.1 the Windows portable version was a single exe with its data in the `ramt-data` folder next to it. Copy that folder into the newly unpacked folder, next to `RAMT.exe`, and your connections, passwords and settings are back (same computer, same system user).
 
 **Do the portable and installer versions share data?**
 Not automatically - they use different data folders. Use export / import to move data between them.
