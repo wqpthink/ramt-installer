@@ -63,7 +63,7 @@ Copyright © 2026 WQPTHINK. All rights reserved.
 作者可能随新版本更新本协议。更新后的协议随新版本提供，您继续使用新版本即表示同意更新后的协议。
 
 十、适用法律与争议解决
-本协议适用中华人民共和国法律（不包括冲突法规则）。因本协议产生的争议，双方应协商解决；协商不成的，任何一方可向作者所在地有管辖权的人民法院提起诉讼。
+本协议适用您惯常居住地所在国家或地区的法律。因本协议产生或与本协议有关的争议，双方应首先友好协商解决；协商不成的，任何一方可向依该法律有管辖权的法院提起诉讼。本协议的任何条款均不排除或限制您依据所在国家或地区法律享有的、不能通过协议排除或限制的权利（例如消费者权益）。如本协议的某一条款依适用法律无效或无法执行，该条款在法律允许的范围内尽量按其原意执行，其余条款继续有效。
 
 十一、联系方式
 联系作者（申请注册码等）：腾讯微信 starsealun
@@ -126,8 +126,8 @@ If You breach any term of this Agreement, the license granted to You terminates 
 9. Changes
 The Author may update this Agreement with new versions of the Software. The updated Agreement is provided with the new version; continuing to use the new version means You accept it.
 
-10. Governing Law
-This Agreement is governed by the laws of the People's Republic of China, excluding its conflict of laws rules. Disputes shall first be settled through negotiation; failing that, either party may bring a lawsuit before the competent people's court at the Author's location.
+10. Governing Law and Dispute Resolution
+This Agreement is governed by the laws of the country or region where You habitually reside. Any dispute arising out of or in connection with this Agreement shall first be settled amicably through negotiation; failing that, either party may bring the dispute before the courts that have jurisdiction under those laws. Nothing in this Agreement excludes or limits any rights You have under the laws of Your country or region that cannot be excluded or limited by contract, such as consumer protection rights. If any provision of this Agreement is held invalid or unenforceable under applicable law, it shall be enforced to the maximum extent permitted and the remaining provisions remain in effect.
 
 11. Contact
 Contact the Author (e.g. to apply for a Registration Code): WeChat starsealun
