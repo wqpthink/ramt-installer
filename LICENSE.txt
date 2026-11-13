@@ -1,0 +1,134 @@
+RAMT 最终用户许可协议
+RAMT End User License Agreement
+
+版权所有 © 2026 WQPTHINK。保留所有权利。
+Copyright © 2026 WQPTHINK. All rights reserved.
+
+（English version below. 中英文版本如有不一致，以中文版本为准。）
+
+======================================================================
+中文版本
+======================================================================
+
+请在安装或使用 RAMT 之前仔细阅读本协议。安装、复制或使用 RAMT，即表示您同意本协议的全部条款；如不同意，请不要安装或使用。
+
+一、定义
+1. “本软件”指 RAMT 远程会话管理工具，包括安装版、绿色版、后续更新、随附文档及其他相关材料。
+2. “作者”指本软件的著作权人 WQPTHINK。
+3. “注册码”指作者签发、用于解除本软件连接配置数量限制的授权码。
+4. “您”指安装或使用本软件的个人或单位。
+
+二、许可
+1. 本软件为闭源软件，作者仅授予您使用本软件的非独占、不可转让、可撤销的许可，本软件的著作权及其他知识产权归作者所有。
+2. 未注册版本：您可以免费使用本软件，但最多只能保存 1 个连接配置（跳板机也计为连接配置），其他功能不受限制。
+3. 注册版本：在注册码的有效期内，连接配置数量不受限制。注册码到期、被移除或被作废后，本软件恢复为未注册版本的限制，已有的连接配置不会被删除。
+4. 您可以复制和免费转发未经任何修改的官方安装包，但不得收取费用，也不得附带注册码。
+
+三、注册码
+1. 注册码仅供注册码中记载的授权对象使用。未经作者书面同意，不得出售、出租、转让、公开发布或与他人共享注册码。
+   每个注册码与一台计算机的机器码绑定，只能在该计算机上使用。更换计算机或重装操作系统后机器码会变化，需要重新获取注册码。
+2. 对于泄露、公开传播或以违反本协议的方式使用的注册码，作者有权在后续版本中将其作废。
+3. 注册码的价格、有效期和退款规则以购买时的约定为准。
+
+四、限制
+除适用法律明确允许的范围外，您不得：
+1. 对本软件进行反向工程、反编译、反汇编，或以其他方式试图获取其源代码；
+2. 修改、禁用、绕过或规避注册码校验、连接配置数量限制或其他授权机制，或制作、使用、传播用于上述目的的工具、补丁或注册码生成器；
+3. 修改本软件，或分发经修改的版本；
+4. 出租、出售、再许可本软件，或将本软件作为商业服务向第三方提供；
+5. 删除或遮挡本软件中的版权、商标及许可声明。
+
+五、数据与隐私
+1. 本软件严格禁止获取您的任何私有数据。本软件不收集、不上传任何个人信息或您的数据，没有账号、云同步、统计、遥测或崩溃上报；作者不设立、不运营任何接收用户数据的服务器。
+2. 连接配置、凭据、主机指纹、设置、会话记录、日志等全部数据只保存在您设备上的本软件数据目录中，不会被上传到任何地方。
+3. 您保存的密码、私钥、私钥口令及其他凭据，统一交由操作系统提供的凭据安全机制（Windows DPAPI、macOS 钥匙串、Linux Secret Service）加密保管；加密后的数据只保存在本机，只有同一台设备上的同一操作系统用户才能解密。本软件不会以明文形式将凭据写入磁盘、日志或临时文件，不会另行生成、复制或保存私钥文件，也不会修改您原有的私钥文件。私钥只在本机用于身份认证，私钥本身不会被发送给任何服务器或第三方。操作系统没有可用的安全存储时，本软件不保存凭据。
+4. 本软件仅在以下情况进行网络通信：（1）您主动建立的 SSH、SFTP、远程桌面等连接，数据只在您的设备与您配置的服务器（包括您配置的跳板机）之间传输；（2）检查和下载更新时访问 GitHub，只获取公开的版本信息和安装包，不发送您的任何数据（GitHub 作为第三方服务会收到通常的网络请求信息，例如 IP 地址），您可以在设置中关闭自动检查更新。注册码在本机离线校验，不联网。
+5. 本地 API 由您自行开启并通过访问令牌授权，其任何接口都不会返回已保存的密码、私钥或口令。
+6. 您主动导出的连接配置文件为便于迁移，包含明文密码与私钥。该文件只保存到您选择的位置，本软件不会上传它，由您自行妥善保管。
+7. 由于作者无法访问您的任何数据，作者无法为您找回或恢复密码、私钥或其他数据，请自行做好备份。
+8. 您通过本软件连接、操作的服务器及其数据由您自行负责。
+
+六、第三方组件
+本软件包含的开源组件按其各自的许可证授权，相关声明见随本软件提供的 THIRD_PARTY_NOTICES.txt。本协议不限制您依据这些许可证享有的权利。
+
+七、免责声明
+1. 本软件按“现状”提供，作者不作任何明示或默示的保证，包括但不限于适销性、特定用途适用性及不侵权的保证。
+2. 本软件可在远程服务器上执行命令、修改和删除文件。因使用或无法使用本软件导致的任何数据丢失、业务中断、服务器故障或其他直接、间接损失，作者不承担责任。
+3. 在适用法律允许的最大范围内，作者对本协议项下全部责任的总额，不超过您为获得注册码实际支付的费用。
+
+八、终止
+如您违反本协议的任何条款，本协议授予的许可自动终止，您应停止使用并删除本软件。作者可以作废相关注册码。
+
+九、协议更新
+作者可能随新版本更新本协议。更新后的协议随新版本提供，您继续使用新版本即表示同意更新后的协议。
+
+十、适用法律与争议解决
+本协议适用中华人民共和国法律（不包括冲突法规则）。因本协议产生的争议，双方应协商解决；协商不成的，任何一方可向作者所在地有管辖权的人民法院提起诉讼。
+
+十一、联系方式
+联系作者（申请注册码等）：腾讯微信 starsealun
+问题与反馈：https://github.com/wqpthink/ramt-installer/issues
+
+
+======================================================================
+English version
+======================================================================
+
+Please read this Agreement carefully before installing or using RAMT. By installing, copying or using RAMT you agree to all terms of this Agreement. If you do not agree, do not install or use it.
+
+1. Definitions
+1.1 "Software" means the RAMT remote session manager, including the installer and portable editions, updates, accompanying documentation and related materials.
+1.2 "Author" means WQPTHINK, the copyright holder of the Software.
+1.3 "Registration Code" means an authorization code issued by the Author that removes the limit on the number of connection profiles.
+1.4 "You" means the individual or organization installing or using the Software.
+
+2. License
+2.1 The Software is closed source. The Author grants You a non-exclusive, non-transferable, revocable license to use the Software. The Author retains all copyright and other intellectual property rights in the Software.
+2.2 Unregistered version: You may use the Software free of charge, but You can save at most 1 connection profile (jump hosts count as connection profiles). All other features are unrestricted.
+2.3 Registered version: while a Registration Code is valid, the number of connection profiles is unlimited. When the code expires, is removed or is revoked, the limits of the unregistered version apply again; existing connection profiles are not deleted.
+2.4 You may copy and redistribute unmodified official installation packages free of charge. You may not charge for them or include Registration Codes with them.
+
+3. Registration Codes
+3.1 A Registration Code may only be used by the licensee named in it. Without the Author's written consent You may not sell, rent, transfer, publish or share it.
+    Each Registration Code is bound to the machine code of one computer and only works on that computer. The machine code changes on another computer or when the operating system is reinstalled, which then requires a new Registration Code.
+3.2 The Author may revoke, in later versions of the Software, Registration Codes that have been leaked, published or used in breach of this Agreement.
+3.3 Prices, validity periods and refunds of Registration Codes are as agreed at the time of purchase.
+
+4. Restrictions
+Except as expressly permitted by applicable law, You may not:
+4.1 reverse engineer, decompile or disassemble the Software, or otherwise attempt to obtain its source code;
+4.2 modify, disable, bypass or circumvent the Registration Code verification, the connection profile limit or any other licensing mechanism, or create, use or distribute tools, patches or code generators for that purpose;
+4.3 modify the Software or distribute modified versions of it;
+4.4 rent, sell or sublicense the Software, or provide it to third parties as a commercial service;
+4.5 remove or obscure any copyright, trademark or license notices in the Software.
+
+5. Data and Privacy
+5.1 The Software is strictly forbidden from obtaining any of Your private data. It does not collect or upload personal information or any of Your data, and has no account, cloud sync, analytics, telemetry or crash reporting. The Author does not set up or operate any server that receives user data.
+5.2 All data, including connection profiles, credentials, host fingerprints, settings, session records and logs, is stored only in the Software's data folder on Your device and is never uploaded anywhere.
+5.3 Passwords, private keys, key passphrases and other credentials You save are encrypted and kept by the credential protection of the operating system (Windows DPAPI, macOS Keychain, Linux Secret Service). The encrypted data is stored only on Your device and can only be decrypted by the same operating system user on the same device. The Software never writes credentials to disk, logs or temporary files in plain text, never creates, copies or saves private key files of its own, and never modifies Your original private key files. Private keys are only used on Your device for authentication; the keys themselves are never sent to any server or third party. When the operating system offers no usable secure storage, the Software does not save credentials.
+5.4 The Software only communicates over the network (a) for connections You open yourself, such as SSH, SFTP and remote desktop connections, whose data travels only between Your device and the servers You configured (including the jump hosts You configured), and (b) to check for and download updates from GitHub, which only retrieves public version information and installation packages and sends none of Your data (as a third-party service, GitHub receives the usual network request information such as Your IP address); You can turn off automatic update checks in the settings. Registration Codes are verified offline on Your device.
+5.5 The Local API is enabled and authorized by You with an access token; none of its endpoints ever returns saved passwords, private keys or passphrases.
+5.6 Connection files You export yourself contain passwords and private keys in plain text for easy migration. Such a file is only written to the location You choose, is never uploaded by the Software, and must be kept safe by You.
+5.7 As the Author has no access to any of Your data, the Author cannot recover passwords, private keys or other data for You. Please keep Your own backups.
+5.8 You are responsible for the servers and data You access through the Software.
+
+6. Third-Party Components
+Open source components included in the Software are licensed under their own licenses; see THIRD_PARTY_NOTICES.txt provided with the Software. This Agreement does not limit Your rights under those licenses.
+
+7. Disclaimer
+7.1 The Software is provided "as is", without warranty of any kind, express or implied, including but not limited to merchantability, fitness for a particular purpose and non-infringement.
+7.2 The Software can execute commands on, and modify and delete files of, remote servers. The Author is not liable for any data loss, business interruption, server failure or other direct or indirect damage arising from the use of or inability to use the Software.
+7.3 To the maximum extent permitted by applicable law, the Author's total liability under this Agreement shall not exceed the amount You actually paid for the Registration Code.
+
+8. Termination
+If You breach any term of this Agreement, the license granted to You terminates automatically and You must stop using and delete the Software. The Author may revoke the related Registration Codes.
+
+9. Changes
+The Author may update this Agreement with new versions of the Software. The updated Agreement is provided with the new version; continuing to use the new version means You accept it.
+
+10. Governing Law
+This Agreement is governed by the laws of the People's Republic of China, excluding its conflict of laws rules. Disputes shall first be settled through negotiation; failing that, either party may bring a lawsuit before the competent people's court at the Author's location.
+
+11. Contact
+Contact the Author (e.g. to apply for a Registration Code): WeChat starsealun
+Questions and feedback: https://github.com/wqpthink/ramt-installer/issues

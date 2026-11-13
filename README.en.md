@@ -279,7 +279,7 @@ Unresponsive windows, crashed processes and similar events are written to `ramt.
 
 ## 📄 License agreement
 
-RAMT is closed-source software; only installation packages are published. It is free to use (up to 1 saved connection profile); after entering a registration code in **Settings → Registration** the number is unlimited. Installing and using RAMT means you accept the **license agreement**: the installer shows the full text, and after installation it is available at any time in **Settings → About** (the file `LICENSE.txt` in the `resources` folder of the installation). The open-source components used in RAMT and their licenses are listed in `THIRD_PARTY_NOTICES.txt` in the same folder.
+RAMT is closed-source software; only installation packages are published. It is free to use (up to 1 saved connection profile); after entering a registration code in **Settings → Registration** the number is unlimited. Installing and using RAMT means you accept the **[license agreement](LICENSE.txt)** (Chinese and English, click to read it here): the installer shows the full text, and after installation it is available at any time in **Settings → About** (the file `LICENSE.txt` in the `resources` folder of the installation). The open-source components used in RAMT and their licenses are listed in `THIRD_PARTY_NOTICES.txt` in the same folder.
 
 ---
 
